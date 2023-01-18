@@ -1,0 +1,122 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation 0.07587274353428877 0.9776771607775335 -0.19593543855709367 0.5726983458718418
+  position -1.7897651879905714 0.2740029684082768 1.3233943480668122
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+WoodenBox {
+  translation -0.323236 -0.325317 0.5
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.346902 -0.330823 0.5
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.351104 0.367235 0.5
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  controller "epuck_go_forward"
+  controllerArgs [
+    ""
+  ]
+}
+Solid {
+  translation 0.2 0 0.2
+  children [
+    DEF BALL Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../../../../Downloads/red_brick_wall.jpg"
+          ]
+        }
+      }
+      geometry DEF BALL_GEOMEETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE BALL_GEOMEETRY
+  physics Physics {
+  }
+}
+DEF WALL Solid {
+  translation -0.53796 -0.0341765 8.88178e-16
+  rotation 0 0 1 1.5708
+  children [
+    DEF TEMBOK Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0.498039
+        roughness 0.5
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.1 0.2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Box {
+    size 1 0.1 0.2
+  }
+  physics Physics {
+  }
+}
+DEF WALL Solid {
+  translation 0.559507 -0.0136114 1.33227e-15
+  rotation 0 0 1 1.5708
+  children [
+    USE TEMBOK
+  ]
+  name "solid(4)"
+  boundingObject Box {
+    size 1 0.1 0.2
+  }
+  physics Physics {
+  }
+}
+DEF WALL Solid {
+  translation 0.00832589 -0.491127 4.44089e-16
+  children [
+    USE TEMBOK
+  ]
+  name "solid(3)"
+  boundingObject Box {
+    size 1 0.1 0.2
+  }
+  physics Physics {
+  }
+}
+DEF WALL Solid {
+  translation 0 0.46 0
+  children [
+    USE TEMBOK
+  ]
+  name "solid(2)"
+  boundingObject Box {
+    size 1 0.1 0.2
+  }
+  physics Physics {
+  }
+}
